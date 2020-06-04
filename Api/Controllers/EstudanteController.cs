@@ -22,37 +22,39 @@ namespace Api.Controllers
         [HttpPost]
         public ActionResult SalvarEstudante([FromBody] EstudanteDto dto)
         {
-            var estudante = new Estudante(dto.DataNascimento, dto.Sexo, dto.Latitude, dto.Longitude);
+            var estudante = new Estudante(dto.Nome, dto.NomeResponsavel, dto.DataNascimento, dto.Sexo, dto.Email);
 
             _estudantesCollection.InsertOne(estudante);
             
             return StatusCode(201, "Estudante adicionado com sucesso");
         }
 
-        [HttpGet]
-        public ActionResult ObterEstudantes()
+       
+
+        [HttpGet("{email}")]
+        public ActionResult ObterEstudante(string email)
         {
-            var estudantes = _estudantesCollection.Find(Builders<Estudante>.Filter.Empty).ToList();
-            
-            return Ok(estudantes);
+            var estudante = _estudantesCollection.Find(Builders<Estudante>.Filter
+            .Where(_ => _.Email == email));            
+
+            return Ok(estudante);
         }
 
         [HttpPut]
-        public ActionResult AtualizarEstudante([FromBody] EstudanteDto dto)
+        public ActionResult AtualizarNome([FromBody] EstudanteDto dto)
         {
             _estudantesCollection.UpdateOne(Builders<Estudante>.Filter
-            .Where(_ => _.DataNascimento == dto.DataNascimento),
-            Builders<Estudante>.Update.Set("sexo", dto.Sexo));
+            .Where(_ => _.Email == dto.Email),
+            Builders<Estudante>.Update.Set("nome", dto.Nome));
             
-             return Ok("Atualizado com sucesso");
+             return Ok("Nome atualizado com sucesso");
         }
 
-        [HttpDelete("{dataNasc}")]
-        public ActionResult Delete(DateTime dataNasc)
+        [HttpDelete("{email}")]
+        public ActionResult Delete(string email)
         {
             _estudantesCollection.DeleteOne(Builders<Estudante>.Filter
-            .Where(_ => _.DataNascimento == dataNasc));
-            
+            .Where(_ => _.Email == email));            
             
              return Ok("Deletado com sucesso");
         }
