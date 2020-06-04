@@ -2,7 +2,7 @@ using System;
 
 namespace Api.Models
 {
-    public class InfectadoDto
+    public class EstudanteDto
     {
         public DateTime DataNascimento { get; set; }
         public string Sexo { get; set; }

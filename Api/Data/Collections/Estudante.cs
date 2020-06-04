@@ -3,9 +3,9 @@ using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace Api.Data.Collections
 {
-    public class Infectado
+    public class Estudante
     {
-        public Infectado(DateTime dataNascimento, string sexo, double latitude, double longitude)
+        public Estudante(DateTime dataNascimento, string sexo, double latitude, double longitude)
         {
             this.DataNascimento = dataNascimento;
             this.Sexo = sexo;
