@@ -19,10 +19,25 @@ namespace Api.Controllers
             _estudantesCollection = _mongoDB.DB.GetCollection<Estudante>(typeof(Estudante).Name.ToLower());
         }
 
+        [HttpGet]
+        public ActionResult ObterEstudantes()
+        {
+            var estudantes = _estudantesCollection.Find(Builders<Estudante>.Filter.Empty).ToList();
+
+            return Ok(estudantes);
+        }
+
+
         [HttpPost]
         public ActionResult SalvarEstudante([FromBody] EstudanteDto dto)
         {
-            var estudante = new Estudante(dto.Nome, dto.NomeResponsavel, dto.DataNascimento, dto.Sexo, dto.Email);
+            var estudante = new Estudante(dto.Nome,
+                dto.NomeResponsavel,
+                dto.DataNascimento,
+                dto.Sexo,
+                dto.Email,
+                dto.Turma,
+                dto.Atividades);
 
             _estudantesCollection.InsertOne(estudante);
             
@@ -35,23 +50,29 @@ namespace Api.Controllers
         public ActionResult ObterEstudante(string email)
         {
             var estudante = _estudantesCollection.Find(Builders<Estudante>.Filter
-            .Where(_ => _.Email == email));            
+            .Where(_ => _.Email == email)).FirstOrDefault();            
 
             return Ok(estudante);
         }
 
         [HttpPut]
-        public ActionResult AtualizarNome([FromBody] EstudanteDto dto)
+        public ActionResult AtualizarEstudante([FromBody] EstudanteDto dto)
         {
             _estudantesCollection.UpdateOne(Builders<Estudante>.Filter
             .Where(_ => _.Email == dto.Email),
-            Builders<Estudante>.Update.Set("nome", dto.Nome));
+            Builders<Estudante>.Update.Set("nome", dto.Nome)
+                                       .Set("dataNascimento", dto.DataNascimento)
+                                       .Set("email", dto.Email)
+                                       .Set("nomeResponsavel", dto.NomeResponsavel)
+                                       .Set("sexo", dto.Sexo)
+                                       .Set("turma", dto.Turma)
+                                       .Set("atividades", dto.Atividades));
             
-             return Ok("Nome atualizado com sucesso");
+             return Ok("Atualizado com sucesso");
         }
 
         [HttpDelete("{email}")]
-        public ActionResult Delete(string email)
+        public ActionResult DeletarEstudante(string email)
         {
             _estudantesCollection.DeleteOne(Builders<Estudante>.Filter
             .Where(_ => _.Email == email));            
