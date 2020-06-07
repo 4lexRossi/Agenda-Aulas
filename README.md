@@ -42,10 +42,9 @@ use o endereço -> [localhost:5000/estudante](http://localhost:5000/atividade) p
 
 
 <h3 align="center">LinkedIn dos Participantes desse projeto</h3>
-[Alex Rossi](https://www.linkedin.com/in/4lex/)
-[Tati Bleck](https://www.linkedin.com/in/tatianebleck/)
-[Victor Silva](https://www.linkedin.com/in/victor-da-silva-a75951138/)
-
+<p>[Alex Rossi](https://www.linkedin.com/in/4lex/)</p>
+<p>[Tati Bleck](https://www.linkedin.com/in/tatianebleck/)</p>
+<p>[Victor Silva](https://www.linkedin.com/in/victor-da-silva-a75951138/)</p>
 
 ## Links Uteis
 
