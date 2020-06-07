@@ -31,13 +31,14 @@ namespace Api.Controllers
         [HttpPost]
         public ActionResult SalvarEstudante([FromBody] EstudanteDto dto)
         {
-            var estudante = new Estudante(dto.Nome,
+            var estudante = new Estudante(
+                dto.Nome,
                 dto.NomeResponsavel,
                 dto.DataNascimento,
                 dto.Sexo,
                 dto.Email,
-                dto.Turma,
-                dto.Atividades);
+                dto.Turma
+                );
 
             _estudantesCollection.InsertOne(estudante);
             
@@ -60,15 +61,14 @@ namespace Api.Controllers
         {
             _estudantesCollection.UpdateOne(Builders<Estudante>.Filter
             .Where(_ => _.Email == dto.Email),
-            Builders<Estudante>.Update.Set("nome", dto.Nome)
+             Builders<Estudante>.Update.Set("nome", dto.Nome)
                                        .Set("dataNascimento", dto.DataNascimento)
                                        .Set("email", dto.Email)
                                        .Set("nomeResponsavel", dto.NomeResponsavel)
                                        .Set("sexo", dto.Sexo)
-                                       .Set("turma", dto.Turma)
-                                       .Set("atividades", dto.Atividades));
+                                       .Set("turma", dto.Turma));
             
-             return Ok("Atualizado com sucesso");
+             return Ok("Cadastro atualizado com sucesso");
         }
 
         [HttpDelete("{email}")]
@@ -77,7 +77,7 @@ namespace Api.Controllers
             _estudantesCollection.DeleteOne(Builders<Estudante>.Filter
             .Where(_ => _.Email == email));            
             
-             return Ok("Deletado com sucesso");
+             return Ok("Cadastro deletado com sucesso");
         }
     }
 }

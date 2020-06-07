@@ -11,9 +11,11 @@ namespace Api.Models
         public DateTime DataNascimento { get; set; }
         public string Sexo { get; set; }
         public string Email { get; set; }
-        public string Turma { get; set; }
-        public IEnumerable<Atividade> Atividades { get; set; }
-
-
+        public string Turma { get; set; }        
+    }
+    public class AtividadeDto
+    {
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
     }
 }

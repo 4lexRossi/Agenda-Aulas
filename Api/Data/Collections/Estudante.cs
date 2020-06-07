@@ -6,20 +6,19 @@ namespace Api.Data.Collections
 {
     public class Estudante
     {
-        public Estudante(string nome,
+        public Estudante(
+            string nome,
             string nomeResponsavel,
             DateTime dataNascimento,
             string sexo,
             string email,
-            string turma,
-            IEnumerable<Atividade> atividades)
+            string turma)
         {
             this.Nome = nome;
             this.NomeResponsavel = nomeResponsavel;
             this.DataNascimento = dataNascimento;
             this.Sexo = sexo;           
-            this.Email = email;
-            this.Atividades = atividades;
+            this.Email = email;            
             this.Turma = turma;
         } 
         
@@ -29,6 +28,17 @@ namespace Api.Data.Collections
         public string Turma { get; set; }
         public string Sexo { get; set; }
         public string Email { get; set; }
-        public IEnumerable<Atividade> Atividades { get; set; }
+    }
+     public class Atividade
+    {
+        public Atividade(
+            string nome,
+            string descricao)
+        {        
+            this.Nome = nome;
+            this.Descricao = descricao;
+        } 
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
     }
 }

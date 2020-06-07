@@ -28,12 +28,20 @@ namespace Api.Data
 
         private void MapClasses()
         {
-            var conventionPack = new ConventionPack { new CamelCaseElementNameConvention() };
+            var conventionPack = new ConventionPack { new CamelCaseElementNameConvention()};
             ConventionRegistry.Register("camelCase", conventionPack, t => true);
 
             if (!BsonClassMap.IsClassMapRegistered(typeof(Estudante)))
             {
                 BsonClassMap.RegisterClassMap<Estudante>(i =>
+                {
+                    i.AutoMap();
+                    i.SetIgnoreExtraElements(true);
+                });
+            }     
+            if (!BsonClassMap.IsClassMapRegistered(typeof(Atividade)))
+            {
+                BsonClassMap.RegisterClassMap<Atividade>(i =>
                 {
                     i.AutoMap();
                     i.SetIgnoreExtraElements(true);
