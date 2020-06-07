@@ -40,8 +40,7 @@ use o endereço -> [localhost:5000/estudante](http://localhost:5000/estudante) p
 
 use o endereço -> [localhost:5000/estudante](http://localhost:5000/atividade) para utilizar a atividade e testar os métodos `POST`, `GET` e `PUT` para `DELETE` adicione `/nome_do_cadastro` ao final do endereço.
 
-
-<h3 align="center">LinkedIn dos Participantes desse projeto</h3>
+LinkedIn dos Participantes desse projeto
 <p>[Alex Rossi](https://www.linkedin.com/in/4lex/)</p>
 <p>[Tati Bleck](https://www.linkedin.com/in/tatianebleck/)</p>
 <p>[Victor Silva](https://www.linkedin.com/in/victor-da-silva-a75951138/)</p>
