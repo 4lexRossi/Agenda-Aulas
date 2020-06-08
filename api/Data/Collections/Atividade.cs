@@ -7,8 +7,14 @@ namespace api.Data.Collections
 {
     public class Atividade
     {
-
+        public Atividade(
+            string nome,
+            string descricao)
+        {        
+            this.Nome = nome;
+            this.Descricao = descricao;
+        } 
         public string Nome { get; set; }
-        public bool Concluido { get; set; }
+        public string Descricao { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using api.Data.Collections;
+using Api.Models;
 using System;
 using System.Collections.Generic;
 
@@ -6,21 +7,23 @@ namespace Api.Data.Collections
 {
     public class Estudante
     {
-        public Estudante(string nome,
+        public Estudante(
+            string nome,
             string nomeResponsavel,
             DateTime dataNascimento,
             string sexo,
             string email,
             string turma,
-            IEnumerable<Atividade> atividades)
+            IEnumerable<AtividadeDto> atividades
+            )
         {
             this.Nome = nome;
             this.NomeResponsavel = nomeResponsavel;
             this.DataNascimento = dataNascimento;
             this.Sexo = sexo;           
-            this.Email = email;
-            this.Atividades = atividades;
+            this.Email = email;            
             this.Turma = turma;
+            this.Atividades = atividades;
         } 
         
         public string Nome { get; set; }
@@ -29,6 +32,8 @@ namespace Api.Data.Collections
         public string Turma { get; set; }
         public string Sexo { get; set; }
         public string Email { get; set; }
-        public IEnumerable<Atividade> Atividades { get; set; }
+        public IEnumerable<AtividadeDto> Atividades { get; set; }
+
     }
+    
 }

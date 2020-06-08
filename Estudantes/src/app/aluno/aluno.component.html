@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+</nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Professor Fulano</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
+          <li class="nav-item">
+            <a [routerLink]="['/home']" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p> Home</p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a [routerLink]="['/atividade']"  class="nav-link">
+              <i class="nav-icon fas fa-pen-square"></i>
+              <p>
+               Atividades
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a [routerLink]="['/atividade']" class="nav-link">
+                  <i class="fas fa-plus-circle nav-icon"></i>
+                  <p> Cadastrar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/atividades']"  class="nav-link">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p> Visualizar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview menu-open">
+            <a [routerLink]="['/aluno']" class="nav-link active">
+              <i class="nav-icon fas fa-user-graduate"></i>
+              <p>
+               Alunos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a [routerLink]="['/aluno']"  class="nav-link active">
+                  <i class="fas fa-plus-circle nav-icon"></i>
+                  <p> Cadastrar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/alunos']" class="nav-link">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p> Visualizar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Cadastrar Aluno</h1>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-12"><!-- column -->
+          <!-- jquery validation -->
+          <div class="card card-outline card-success">
+
+            <!-- form start -->
+            <form role="form" id="quickForm">
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <label>Nome do aluno</label>
+                      <input type="text" name="nome_aluno" class="form-control" id="nome_aluno" placeholder="Nome completo">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Sexo</label>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" id="feminino" name="sexo">
+                          <label class="form-check-label col-3">Feminino</label>
+
+                          <input class="form-check-input" type="radio" id="masculino" name="sexo">
+                          <label class="form-check-label col-3">Masculino</label>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Data de nascimento</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                          </div>
+                            <input type="text" class="form-control" name="data_nasc" id="data_nasc" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                        </div> <!-- /.input group -->
+                    </div>  <!-- /.form group -->
+                  </div>
+                </div> <!-- row -->
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="email" name="email" class="form-control" id="email">
+                    </div>
+                    </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Telefone</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                          </div>
+                            <input type="text" class="form-control" data-inputmask='"mask": "(99) 99999-9999"' data-mask>
+                        </div><!-- /.input group -->
+                    </div><!-- /.form group -->
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <label>Responsável</label>
+                      <input type="text" name="nome_responsavel" class="form-control" id="nome_responsavel" placeholder="Nome completo / Filiação">
+                    </div>
+                  </div>
+                </div><!-- row -->
+
+
+              </div><!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-success float-right">Concluído</button>
+              </div>
+            </form>
+
+          </div><!-- /.card -->
+          </div><!--/.col -->
+
+       </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+</div><!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+<!-- InputMask -->
+<script src="../../plugins/moment/moment.min.js"></script>
+<script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+
+<!-- jquery-validation -->
+<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+
+<!-- Select2 -->
+<script src="../../plugins/select2/js/select2.full.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $.validator.setDefaults({
+      submitHandler: function () {
+        alert( "Form successful submitted!" );
+      }
+    });
+    $('#quickForm').validate({
+      rules: {
+        nome_aluno: {
+          required: true
+        },
+        nome_responsavel: {
+          required: true
+        },
+        data_nasc: {
+          required: true
+        },
+        email: {
+          email: true
+        },
+        sexo: {
+          required: true
+        }
+      },
+      messages: {
+        email: {
+          email: "Forneça um endereço de email válido"
+        },
+        nome_aluno: {
+          required: "Forneça um nome para o aluno"
+        },
+        nome_responsavel: {
+          required: "Forneça um nome para o responsável"
+        },
+        data_nasc: {
+          required: "Forneça uma data"
+        },
+        sexo: {
+          required: "Selecione uma opção"
+        },
+      },
+      errorElement: 'span',
+      errorPlacement: function (error, element) {
+        error.addClass('invalid-feedback');
+        element.closest('.form-group').append(error);
+      },
+      highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+      },
+      unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+      }
+    });
+  });
+  </script>
+
+      <script>
+
+     $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/aaaa' })
+    $('[data-mask]').inputmask()
+
+  })
+    </script>
+
+
+</body>
+</html>
+
+<!--  -->
