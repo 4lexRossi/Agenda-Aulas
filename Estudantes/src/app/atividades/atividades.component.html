@@ -61,13 +61,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a [routerLink]="['/atividade']" class="nav-link active">
+                <a [routerLink]="['/atividade']" class="nav-link">
                   <i class="fas fa-plus-circle nav-icon"></i>
                   <p> Cadastrar</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/atividades']" class="nav-link">
+                <a [routerLink]="['/atividades']" class="nav-link active">
                   <i class="far fa-eye nav-icon"></i>
                   <p> Visualizar</p>
                 </a>
@@ -94,6 +94,30 @@
                 <a [routerLink]="['/alunos']" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
                   <p> Visualizar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a [routerLink]="['/turma']" class="nav-link">
+              <i class="nav-icon fas fa-user-graduate"></i>
+              <p>
+               Turmas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a [routerLink]="['/turma']" class="nav-link">
+                  <i class="fas fa-plus-circle nav-icon"></i>
+                  <p> Visualizar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/turmas']" class="nav-link">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p> Buscar</p>
                 </a>
               </li>
             </ul>

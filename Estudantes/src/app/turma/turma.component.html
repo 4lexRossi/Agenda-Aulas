@@ -51,8 +51,8 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview menu-open">
-            <a [routerLink]="['/atividade']" class="nav-link active">
+          <li class="nav-item has-treeview">
+            <a [routerLink]="['/atividade']" class="nav-link">
               <i class="nav-icon fas fa-pen-square"></i>
               <p>
                Atividades
@@ -61,7 +61,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a [routerLink]="['/atividade']" class="nav-link active">
+                <a [routerLink]="['/atividade']" class="nav-link">
                   <i class="fas fa-plus-circle nav-icon"></i>
                   <p> Cadastrar</p>
                 </a>
@@ -99,9 +99,9 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a [routerLink]="['/turma']" class="nav-link">
-              <i class="nav-icon fas fa-user-graduate"></i>
+          <li class="nav-item has-treeview menu-open">
+            <a [routerLink]="['/turma']" class="nav-link active">
+              <i class="nav-icon fas fa-server"></i>
               <p>
                Turmas
                 <i class="right fas fa-angle-left"></i>
@@ -109,15 +109,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a [routerLink]="['/turma']" class="nav-link">
-                  <i class="fas fa-plus-circle nav-icon"></i>
-                  <p> Visualizar</p>
+                <a [routerLink]="['/turma']" class="nav-link active">
+                  <i class="fas fa-search nav-icon"></i>
+                  <p> Buscar</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a [routerLink]="['/turmas']" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
-                  <p> Buscar</p>
+                  <p> Visualizar</p>
                 </a>
               </li>
             </ul>
@@ -136,7 +136,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Cadastrar Atividade</h1>
+          <h1>Buscar Turma</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -158,8 +158,8 @@
                 <div class="row">
                   <div class="col-sm-8">
                     <div class="form-group">
-                      <label>Nome da atividade</label>
-                      <input type="text" name="nome_atividade" class="form-control" id="nome_atividade">
+                      <label>Nome da Turma</label>
+                      <input type="text" name="nome_turma" class="form-control" id="nome_turma">
                     </div>
                   </div>
                 </div> <!-- row -->
@@ -167,15 +167,18 @@
                 <div class="row">
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Descrição</label>
-                        <textarea class="form-control" rows="3" name="descricao_atividade" id="descricao_atividade"></textarea>
+                        <label>Turmas</label>                    
+                        <div class="col-sm-6">
+                          <h1>Turmas vão aqui</h1>                     
+                        </div>
                       </div>
                     </div>
                   </div> <!-- row -->
 
               </div><!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" class="btn btn-success float-right">Concluído</button>
+                <a [routerLink]="['/home']" >
+                <button class="btn btn-success float-right">Home</button></a>
               </div>
             </form>
 
@@ -221,13 +224,13 @@
       });
       $('#quickForm').validate({
         rules: {
-            nome_atividade: {
+            nome_turma: {
             required: true
           },
         },
         messages: {
-            nome_atividade: {
-            required: "Forneça um nome para a atividade"
+            nome_turma: {
+            required: "Forneça um nome para a busca da turma"
             },
         },
         errorElement: 'span',

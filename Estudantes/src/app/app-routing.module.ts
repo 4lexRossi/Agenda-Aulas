@@ -6,7 +6,8 @@ import { AlunoComponent } from './aluno/aluno.component';
 import { HomeComponent } from './home/home.component';
 import { AtividadeComponent } from './atividade/atividade.component';
 import { AtividadesComponent } from './atividades/atividades.component';
-
+import { TurmaComponent } from './turma/turma.component';
+import { TurmasComponent } from './turmas/turmas.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,14 @@ const routes: Routes = [
   {
     path: 'aluno',
     component: AlunoComponent
+  },
+  {
+    path: 'turmas',
+    component: TurmasComponent
+  },
+  {
+    path: 'turma',
+    component: TurmaComponent
   },
   {
     path: '**',
