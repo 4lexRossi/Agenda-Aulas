@@ -37,7 +37,8 @@ namespace Api.Controllers
                 dto.DataNascimento,
                 dto.Sexo,
                 dto.Email,
-                dto.Turma
+                dto.Turma,
+                dto.Atividades
                 );
 
             _estudantesCollection.InsertOne(estudante);

@@ -1,4 +1,5 @@
 using System;
+using api.Data.Collections;
 using Api.Data.Collections;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Bson.Serialization;

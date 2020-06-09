@@ -1,4 +1,5 @@
 using api.Data.Collections;
+using Api.Models;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +13,9 @@ namespace Api.Data.Collections
             DateTime dataNascimento,
             string sexo,
             string email,
-            string turma)
+            string turma,
+            IEnumerable<AtividadeDto> atividades
+            )
         {
             this.Nome = nome;
             this.NomeResponsavel = nomeResponsavel;
@@ -20,6 +23,7 @@ namespace Api.Data.Collections
             this.Sexo = sexo;           
             this.Email = email;            
             this.Turma = turma;
+            this.Atividades = atividades;
         } 
         
         public string Nome { get; set; }
@@ -28,17 +32,8 @@ namespace Api.Data.Collections
         public string Turma { get; set; }
         public string Sexo { get; set; }
         public string Email { get; set; }
+        public IEnumerable<AtividadeDto> Atividades { get; set; }
+
     }
-     public class Atividade
-    {
-        public Atividade(
-            string nome,
-            string descricao)
-        {        
-            this.Nome = nome;
-            this.Descricao = descricao;
-        } 
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-    }
+    
 }
