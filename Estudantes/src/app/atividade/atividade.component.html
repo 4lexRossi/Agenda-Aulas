@@ -4,34 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">  
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-  <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
 </nav>
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
 
-    <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
+
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
@@ -40,8 +33,6 @@
           <a href="#" class="d-block">Professor Fulano</a>
         </div>
       </div>
-
-      <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
           <li class="nav-item">
@@ -124,14 +115,9 @@
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>
-
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -139,76 +125,59 @@
           <h1>Cadastrar Atividade</h1>
         </div>
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
-
-  <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
       <div class="row">
 
-        <div class="col-md-12"><!-- column -->
-          <!-- jquery validation -->
+        <div class="col-md-12">
           <div class="card card-outline card-success">
-
-            <!-- form start -->
-            <form role="form" id="quickForm">
+            <form [formGroup]="atividadeForm" role="form" id="quickForm">
               <div class="card-body">
-
                 <div class="row">
                   <div class="col-sm-8">
                     <div class="form-group">
                       <label>Nome da atividade</label>
-                      <input type="text" name="nome_atividade" class="form-control" id="nome_atividade">
+                      <input formControlName="nome" type="text" name="nome_atividade" class="form-control" id="nome_atividade">
                     </div>
                   </div>
-                </div> <!-- row -->
+                </div>
 
                 <div class="row">
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Descrição</label>
-                        <textarea class="form-control" rows="3" name="descricao_atividade" id="descricao_atividade"></textarea>
+                        <textarea formControlName="descricao" class="form-control" rows="3" name="descricao_atividade" id="descricao_atividade"></textarea>
                       </div>
                     </div>
-                  </div> <!-- row -->
+                  </div>
 
-              </div><!-- /.card-body -->
+              </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-success float-right">Concluído</button>
+                <button (click)='save()' type="submit" class="btn btn-success float-right">Concluído</button>
               </div>
             </form>
-
-          </div><!-- /.card -->
-          </div><!--/.col -->
-
-       </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
+          </div>
+          </div>
+       </div>
     </div>
-    <!-- Default to the left -->
+  </section>
+</div>
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-inline">
+      Digital Innovation One
+    </div>
     <strong>Copyright &copy; 2020 <a href="https://github.com/4lexRossi/dotNet-mongo-squad1">SQUAD 1</a>.</strong> All rights reserved.
   </footer>
 
-</div><!-- ./wrapper -->
+</div>
 
-<!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
-<!-- jquery-validation -->
 <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="plugins/jquery-validation/additional-methods.min.js"></script>
 

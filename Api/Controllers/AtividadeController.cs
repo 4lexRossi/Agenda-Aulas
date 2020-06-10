@@ -2,11 +2,13 @@
 using api.Data.Collections;
 using Api.Data.Collections;
 using Api.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 
 namespace Api.Controllers
 {
+    [EnableCors("AllowAllOrigins")]
     [ApiController]
     [Route("[controller]")]
     public class AtividadeController : ControllerBase
@@ -34,8 +36,8 @@ namespace Api.Controllers
         {
             var atividade = new Atividade(
                 dto.Nome,
-                dto.Descricao
-                );
+                dto.Descricao,
+                dto.id);
 
             _atividadesCollection.InsertOne(atividade);
             

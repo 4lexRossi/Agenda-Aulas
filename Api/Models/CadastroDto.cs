@@ -16,7 +16,15 @@ namespace Api.Models
     }
     public class AtividadeDto
     {
+        public string id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
+    }
+    public class ProfessorDto
+    {
+        public string Nome { get; set; }
+        public string SobreNome { get; set; }        
+        public string Email { get; set; }
+        public string Senha { get; set; }        
     }
 }

@@ -57,7 +57,7 @@
       scrollbarTheme: 'os-theme-light',
       scrollbarAutoHide: 'l'
     };
-    /**
+    /*
      * Class Definition
      * ====================================================
      */

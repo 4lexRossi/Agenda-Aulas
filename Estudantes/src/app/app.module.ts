@@ -10,6 +10,11 @@ import { AtividadesComponent } from './atividades/atividades.component';
 import { HomeComponent } from './home/home.component';
 import { TurmaComponent } from './turma/turma.component';
 import { TurmasComponent } from './turmas/turmas.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +28,9 @@ import { TurmasComponent } from './turmas/turmas.component';
     HomeComponent
   ],
   imports: [
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule
   ],

@@ -2,8 +2,11 @@ using System;
 using api.Data.Collections;
 using Api.Data.Collections;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
+using MongoDB.Bson.Serialization.IdGenerators;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
 namespace Api.Data
@@ -44,6 +47,15 @@ namespace Api.Data
             {
                 BsonClassMap.RegisterClassMap<Atividade>(i =>
                 {
+                    i.MapIdField(x => x.id).SetIdGenerator(StringObjectIdGenerator.Instance).SetSerializer(new StringSerializer(BsonType.ObjectId));
+                    i.AutoMap();
+                    i.SetIgnoreExtraElements(true);
+                });
+            }
+            if (!BsonClassMap.IsClassMapRegistered(typeof(Professor)))
+            {
+                BsonClassMap.RegisterClassMap<Professor>(i =>
+                {                    
                     i.AutoMap();
                     i.SetIgnoreExtraElements(true);
                 });

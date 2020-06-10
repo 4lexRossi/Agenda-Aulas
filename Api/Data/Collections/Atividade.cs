@@ -9,11 +9,14 @@ namespace api.Data.Collections
     {
         public Atividade(
             string nome,
-            string descricao)
+            string descricao,
+            string id
+            )
         {        
             this.Nome = nome;
             this.Descricao = descricao;
         } 
+        public string id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
     }
