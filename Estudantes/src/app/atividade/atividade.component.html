@@ -98,6 +98,30 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a [routerLink]="['/turma']" class="nav-link">
+              <i class="nav-icon fas fa-server"></i>
+              <p>
+               Turmas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a [routerLink]="['/turma']" class="nav-link">
+                  <i class="fas fa-search nav-icon"></i>
+                  <p> Visualizar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/turmas']" class="nav-link">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p> Buscar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -128,14 +152,14 @@
           <div class="card card-outline card-success">
 
             <!-- form start -->
-            <form role="form" id="quickForm">
+            <form [formGroup]="atividadeForm" role="form" id="quickForm">
               <div class="card-body">
 
                 <div class="row">
                   <div class="col-sm-8">
                     <div class="form-group">
                       <label>Nome da atividade</label>
-                      <input type="text" name="nome_atividade" class="form-control" id="nome_atividade">
+                      <input formControlName="nome" type="text" name="nome_atividade" class="form-control" id="nome_atividade">
                     </div>
                   </div>
                 </div> <!-- row -->
@@ -144,14 +168,14 @@
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Descrição</label>
-                        <textarea class="form-control" rows="3" name="descricao_atividade" id="descricao_atividade"></textarea>
+                        <textarea formControlName="descricao" class="form-control" rows="3" name="descricao_atividade" id="descricao_atividade"></textarea>
                       </div>
                     </div>
                   </div> <!-- row -->
 
               </div><!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" class="btn btn-success float-right">Concluído</button>
+                <button (click)='save()' type="submit" class="btn btn-success float-right">Concluído</button>
               </div>
             </form>
 
@@ -172,7 +196,7 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020 <a href="https://github.com/4lexRossi/dotNet-mongo-squad1">SQUAD 1</a>.</strong> All rights reserved.
   </footer>
 
 </div><!-- ./wrapper -->

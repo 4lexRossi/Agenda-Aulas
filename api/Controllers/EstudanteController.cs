@@ -1,11 +1,13 @@
 ﻿using System;
 using Api.Data.Collections;
 using Api.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 
 namespace Api.Controllers
 {
+    [EnableCors("AllowAllOrigins")]
     [ApiController]
     [Route("[controller]")]
     public class EstudanteController : ControllerBase

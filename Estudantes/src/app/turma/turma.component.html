@@ -52,7 +52,7 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a [routerLink]="['/atividade']"class="nav-link">
+            <a [routerLink]="['/atividade']" class="nav-link">
               <i class="nav-icon fas fa-pen-square"></i>
               <p>
                Atividades
@@ -75,8 +75,8 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview menu-open">
-            <a [routerLink]="['/aluno']" class="nav-link active">
+          <li class="nav-item has-treeview">
+            <a [routerLink]="['/aluno']" class="nav-link">
               <i class="nav-icon fas fa-user-graduate"></i>
               <p>
                Alunos
@@ -91,7 +91,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/alunos']" class="nav-link active">
+                <a [routerLink]="['/alunos']" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
                   <p> Visualizar</p>
                 </a>
@@ -99,8 +99,8 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a [routerLink]="['/turma']" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a [routerLink]="['/turma']" class="nav-link active">
               <i class="nav-icon fas fa-server"></i>
               <p>
                Turmas
@@ -109,15 +109,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a [routerLink]="['/turma']" class="nav-link">
+                <a [routerLink]="['/turma']" class="nav-link active">
                   <i class="fas fa-search nav-icon"></i>
-                  <p> Visualizar</p>
+                  <p> Buscar</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a [routerLink]="['/turmas']" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
-                  <p> Buscar</p>
+                  <p> Visualizar</p>
                 </a>
               </li>
             </ul>
@@ -136,13 +136,59 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Visualizar alunos</h1>
+          <h1>Buscar Turma</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
 
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
 
+        <div class="col-md-12"><!-- column -->
+          <!-- jquery validation -->
+          <div class="card card-outline card-success">
+
+            <!-- form start -->
+            <form role="form" id="quickForm">
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label>Nome da Turma</label>
+                      <input type="text" name="nome_turma" class="form-control" id="nome_turma">
+                    </div>
+                  </div>
+                </div> <!-- row -->
+
+                <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Turmas</label>                    
+                        <div class="col-sm-6">
+                          <h1>Turmas vão aqui</h1>                     
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- row -->
+
+              </div><!-- /.card-body -->
+              <div class="card-footer">
+                <a [routerLink]="['/home']" >
+                <button class="btn btn-success float-right">Home</button></a>
+              </div>
+            </form>
+
+          </div><!-- /.card -->
+          </div><!--/.col -->
+
+       </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 
@@ -159,95 +205,47 @@
 </div><!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-
-<!-- InputMask -->
-<script src="../../plugins/moment/moment.min.js"></script>
-<script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
 
 <!-- jquery-validation -->
-<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
-
-<!-- Select2 -->
-<script src="../../plugins/select2/js/select2.full.min.js"></script>
+<script src="plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="plugins/jquery-validation/additional-methods.min.js"></script>
 
 <script type="text/javascript">
-  $(document).ready(function () {
-    $.validator.setDefaults({
-      submitHandler: function () {
-        alert( "Form successful submitted!" );
-      }
-    });
-    $('#quickForm').validate({
-      rules: {
-        nome_aluno: {
-          required: true
-        },
-        nome_responsavel: {
-          required: true
-        },
-        data_nasc: {
-          required: true
-        },
-        email: {
-          email: true
-        },
-        sexo: {
-          required: true
+    $(document).ready(function () {
+      $.validator.setDefaults({
+        submitHandler: function () {
+          alert( "Form successful submitted!" );
         }
-      },
-      messages: {
-        email: {
-          email: "Forneça um endereço de email válido"
+      });
+      $('#quickForm').validate({
+        rules: {
+            nome_turma: {
+            required: true
+          },
         },
-        nome_aluno: {
-          required: "Forneça um nome para o aluno"
+        messages: {
+            nome_turma: {
+            required: "Forneça um nome para a busca da turma"
+            },
         },
-        nome_responsavel: {
-          required: "Forneça um nome para o responsável"
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+          error.addClass('invalid-feedback');
+          element.closest('.form-group').append(error);
         },
-        data_nasc: {
-          required: "Forneça uma data"
+        highlight: function (element, errorClass, validClass) {
+          $(element).addClass('is-invalid');
         },
-        sexo: {
-          required: "Selecione uma opção"
-        },
-      },
-      errorElement: 'span',
-      errorPlacement: function (error, element) {
-        error.addClass('invalid-feedback');
-        element.closest('.form-group').append(error);
-      },
-      highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
-      },
-      unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-      }
+        unhighlight: function (element, errorClass, validClass) {
+          $(element).removeClass('is-invalid');
+        }
+      });
     });
-  });
-  </script>
-
-      <script>
-
-     $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/aaaa' })
-    $('[data-mask]').inputmask()
-
-  })
     </script>
-
-
 </body>
 </html>
-
-<!--  -->

@@ -8,6 +8,10 @@ import { AlunoComponent } from './aluno/aluno.component';
 import { AtividadeComponent } from './atividade/atividade.component';
 import { AtividadesComponent } from './atividades/atividades.component';
 import { HomeComponent } from './home/home.component';
+import { TurmaComponent } from './turma/turma.component';
+import { TurmasComponent } from './turmas/turmas.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +20,14 @@ import { HomeComponent } from './home/home.component';
     AlunoComponent,
     AtividadeComponent,
     AtividadesComponent,
+    TurmaComponent,
+    TurmasComponent,
     HomeComponent
   ],
   imports: [
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule
   ],
