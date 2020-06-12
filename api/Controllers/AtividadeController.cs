@@ -46,11 +46,11 @@ namespace Api.Controllers
 
        
 
-        [HttpGet("{nome}")]
-        public ActionResult ObterEstudante(string nome)
+        [HttpGet("{id}")]
+        public ActionResult ObterEstudante(string id)
         {
             var estudante = _atividadesCollection.Find(Builders<Atividade>.Filter
-            .Where(_ => _.Nome == nome)).FirstOrDefault();            
+            .Where(_ => _.id == id)).FirstOrDefault();            
 
             return Ok(estudante);
         }
@@ -59,7 +59,7 @@ namespace Api.Controllers
         public ActionResult AtualizarAtividades([FromBody] AtividadeDto dto)
         {
             _atividadesCollection.UpdateOne(Builders<Atividade>.Filter
-            .Where(_ => _.Nome == dto.Nome),
+            .Where(_ => _.id == dto.id),
              Builders<Atividade>.Update.Set("nome", dto.Nome)
                                        .Set("descricao", dto.Descricao)
                                         );
@@ -67,11 +67,11 @@ namespace Api.Controllers
              return Ok("Atividade atualizada com sucesso");
         }
 
-       [HttpDelete("{nome}")]
-        public ActionResult DeletarAtividade(string nome)
+       [HttpDelete("{id}")]
+        public ActionResult DeletarAtividade(string id)
         {
             _atividadesCollection.DeleteOne(Builders<Atividade>.Filter
-            .Where(_ => _.Nome == nome));            
+            .Where(_ => _.id == id));            
             
              return Ok("Atividade deletada com sucesso");
         }

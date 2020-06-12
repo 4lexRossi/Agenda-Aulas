@@ -22,8 +22,8 @@ export class AtividadeService {
       .pipe(tap(data => data))
   }
 
-  getActivity(nome: string): Observable<BaseResponse<Atividade>> {
-    return this.http.get<BaseResponse<Atividade>>(`${environment.apiUrl}/atividade/${nome}`, options)
+  getActivity(id: string): Observable<BaseResponse<Atividade>> {
+    return this.http.get<BaseResponse<Atividade>>(`${environment.apiUrl}/atividade/${id}`, options)
       .pipe(tap(data => data))
   }
 
@@ -39,8 +39,8 @@ export class AtividadeService {
     }
   }
 
-  delete(nome: string) {
-    return this.http.delete(`${environment.apiUrl}/atividade/${nome}`, options)
+  delete(id: string) {
+    return this.http.delete(`${environment.apiUrl}/atividade/${id}`, options)
 
   }
 

@@ -1,6 +1,6 @@
 export interface Atividade {
-  id: string;
   nome: string;
+  id: string;
   descricao: string;
 
 }

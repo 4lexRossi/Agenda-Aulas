@@ -1,0 +1,31 @@
+<body>
+  <form [formGroup]="loginForm" role="form" id="quickForm">
+	<div class="login">
+
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>TEACHER ADM</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input formControlName="email" type="text" class="login-field" value="" placeholder="E-mail" id="login-name">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input formControlName="senha" type="password" class="login-field" value="" placeholder="Senha" id="login-pass">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+        <a class="btn btn-primary btn-large btn-block" (click)="fazerLogin()" >Entrar</a><br/>
+        <a class="btn btn-primary btn-large btn-block" [routerLink]="['/professor']" >Cadastrar</a>
+      </div>
+    </div>
+  </div>
+      <div class="image">
+        <img width="550" src="../../assets/img/teacher.svg">
+        </div>
+
+</form>
+</body>

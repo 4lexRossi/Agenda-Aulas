@@ -1,4 +1,5 @@
 using System;
+using api.Data;
 using Api.Data.Collections;
 using Api.Models;
 using Microsoft.AspNetCore.Cors;
@@ -37,7 +38,8 @@ namespace Api.Controllers
                 dto.Nome,
                 dto.SobreNome,                
                 dto.Email,               
-                dto.Senha
+                dto.Senha,
+                dto.Id
                 );
 
             _professoresCollection.InsertOne(professor);
@@ -45,13 +47,13 @@ namespace Api.Controllers
             return StatusCode(201, "Cadastro adicionado com sucesso");
         }
 
-       
 
-        [HttpGet("{email}")]
-        public ActionResult ObterProfessor(string email)
+
+        [HttpGet("{id}")]
+        public ActionResult ObterProfessor(string id)
         {
             var professor = _professoresCollection.Find(Builders<Professor>.Filter
-            .Where(_ => _.Email == email)).FirstOrDefault();            
+            .Where(_ => _.Id == id)).FirstOrDefault();
 
             return Ok(professor);
         }
@@ -60,7 +62,7 @@ namespace Api.Controllers
         public ActionResult AtualizarProfessor([FromBody] ProfessorDto dto)
         {
             _professoresCollection.UpdateOne(Builders<Professor>.Filter
-            .Where(_ => _.Email == dto.Email),
+            .Where(_ => _.Id == dto.Id),
              Builders<Professor>.Update.Set("nome", dto.Nome)
                                        .Set("SobreNome", dto.SobreNome)
                                        .Set("email", dto.Email)                                       
@@ -69,13 +71,15 @@ namespace Api.Controllers
              return Ok("Cadastro atualizado com sucesso");
         }
 
-        [HttpDelete("{email}")]
-        public ActionResult DeletarProfessor(string email)
+        [HttpDelete("{id}")]
+        public ActionResult DeletarProfessor(string id)
         {
             _professoresCollection.DeleteOne(Builders<Professor>.Filter
-            .Where(_ => _.Email == email));            
+            .Where(_ => _.Id == id));            
             
              return Ok("Cadastro deletado com sucesso");
         }
+        
+      
     }
 }

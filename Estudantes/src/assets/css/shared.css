@@ -1,0 +1,134 @@
+@import './fontello.css';
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("../font/Helvetica.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url("../font/HelveticaBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HelveticaLight";
+  src: url("../font/HelveticaLight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTStdLt";
+  src: url("../font/HelveticaNeueLTStd-Lt.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTStdTh";
+  src: url("../font/HelveticaNeueLTStd-Th.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTStdBd";
+  src: url("../font/HelveticaNeueLTStd-Bd.woff") format("woff");
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  background-color: #F0F0F0;
+  margin: 0;
+  padding: 0;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, Verdana;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.colIcons .icon-trash{
+  color: #ff4141;
+}
+
+.caixa-conteudo {
+  padding: 15px;
+}
+
+.dataTables_paginate paging_full_numbers{
+  clear:both;
+  margin-top:6px !important;
+  margin-bottom:6px !important;
+  max-width:none !important;
+  border-collapse:separate !important
+}
+
+.dataTables_length select{
+ width: 100px!important;
+}
+
+.dataTables_filter input {
+ border: 1px solid #ccc;
+}
+
+.dataTables_master_detail {
+border-collapse: collapse;
+border-spacing: 0;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+}
+
+.dataTables_master_detail .icon-circle{
+font-size: 8px!important;
+}
+
+.groupDL-input .botao {
+  /* background-color: #13ce73;
+  box-shadow: 1px 3px 0px 0px #11b766; */
+   background-color: #213556;
+  box-shadow: 1px 3px 0px 0px #213556;
+  border-radius: 100%;
+  padding: 6px 3px;
+  /* color: #fff; */
+  color: #E1E1E1;
+  float: left;
+  margin: 0 0 0 0.5em;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+}
+.groupDL-list {
+  padding: 0;
+  border-radius: .25rem;
+  border: 1px solid #cccccc;
+  position: relative;
+}
+.groupDL-list ul {
+  margin: 0;
+  padding: 0;
+}
+.groupDL-list li {
+  width: 100%;
+  display: inline-grid;
+  padding: 0.4em 0.6em;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+.groupDL-list li:nth-child(2n+1) {
+  background-color: rgba(204, 204, 204, 0.05);
+  border: 0 none;
+}
+.groupDL-list li i {
+  right: 0.4em;
+  position: absolute;
+  color: #a3a3a3;
+  cursor: pointer;
+  font-size: 11px;
+  margin: 4px 3px;
+}

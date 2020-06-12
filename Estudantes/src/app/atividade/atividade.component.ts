@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Atividade } from '../Shared/atividade.interfaces';
 import { AtividadeService } from '../services/atividades/atividade.service';
+import { Professor } from '../Shared/professor.interfaces';
 
 @Component({
   selector: 'app-atividade',
@@ -15,7 +17,11 @@ import { AtividadeService } from '../services/atividades/atividade.service';
    '../../dist/css/adminlte.min.css',
   '../../plugins/fontawesome-free/css/all.min.css']
 })
-export class AtividadeComponent implements OnInit {
+export class AtividadeComponent implements OnInit, AfterViewInit {
+
+  getProf: string = window.localStorage.getItem('prof');
+
+  professor: Professor = JSON.parse( this.getProf);
 
   private ngGetActivityUnsubscribe = new Subject();
 
@@ -30,7 +36,8 @@ export class AtividadeComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private service: AtividadeService) { }
+    private service: AtividadeService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -39,14 +46,40 @@ export class AtividadeComponent implements OnInit {
       descricao: new FormControl(null)
     });
 
+    const id = this.route.snapshot.params['id'];
+
+    if(id)
+    {
+      this.getActivity(id)
+    }
+
   }
 
+  ngAfterViewInit() {
+    if(this.professor == undefined)
+    {
+      this.router.navigateByUrl('/login');
+    }
+  }
 
-  getActivity(nome: string) {
-    this.service.getActivity(nome)
+  Logout()
+  {
+    window.localStorage.getItem('prof')
+
+    window.localStorage.removeItem('prof');
+
+    this.router.navigateByUrl('/login');
+  }
+
+  getActivity(id: string) {
+    this.service.getActivity(id)
       .pipe(takeUntil(this.ngGetActivityUnsubscribe))
       .subscribe(response => {
-        this.atividade = response.data;
+        const data = response;
+        this.atividade = JSON.parse(JSON.stringify(data))
+
+        this.atividadeForm.controls['nome'].setValue(this.atividade.nome)
+        this.atividadeForm.controls['descricao'].setValue(this.atividade.descricao)
 
       }, err => {
 
@@ -54,7 +87,6 @@ export class AtividadeComponent implements OnInit {
   }
 
   save() {
-
 
     if (!this.atividade.id) {
       this.atividade = Object.assign({}, {
@@ -73,10 +105,21 @@ export class AtividadeComponent implements OnInit {
       .pipe(takeUntil(this.ngGetActivityUnsubscribe))
       .subscribe(_ => {
 
+
       }, err => {
       });
+
+      this.toastr.success( 'Atividade Cadastrada com sucesso','Atividade');
+       window.setTimeout(() => {
+
+          this.router.navigateByUrl('/atividades').then(e => {
+            if (e) {
+              console.log("Navigation is successful!");
+            } else {
+              console.log("Navigation has failed!");
+            }
+          });
+        },2000);
   }
-
-
-
 }
+

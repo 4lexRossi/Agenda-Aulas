@@ -40,7 +40,9 @@ namespace Api.Controllers
                 dto.Sexo,
                 dto.Email,
                 dto.Turma,
+                dto.Id,
                 dto.Atividades
+                
                 );
 
             _estudantesCollection.InsertOne(estudante);
@@ -50,11 +52,11 @@ namespace Api.Controllers
 
        
 
-        [HttpGet("{email}")]
-        public ActionResult ObterEstudante(string email)
+        [HttpGet("{id}")]
+        public ActionResult ObterEstudante(string id)
         {
             var estudante = _estudantesCollection.Find(Builders<Estudante>.Filter
-            .Where(_ => _.Email == email)).FirstOrDefault();            
+            .Where(_ => _.Id == id)).FirstOrDefault();            
 
             return Ok(estudante);
         }
@@ -63,24 +65,27 @@ namespace Api.Controllers
         public ActionResult AtualizarEstudante([FromBody] EstudanteDto dto)
         {
             _estudantesCollection.UpdateOne(Builders<Estudante>.Filter
-            .Where(_ => _.Email == dto.Email),
+            .Where(_ => _.Id == dto.Id),
              Builders<Estudante>.Update.Set("nome", dto.Nome)
                                        .Set("dataNascimento", dto.DataNascimento)
                                        .Set("email", dto.Email)
                                        .Set("nomeResponsavel", dto.NomeResponsavel)
                                        .Set("sexo", dto.Sexo)
-                                       .Set("turma", dto.Turma));
+                                       .Set("turma", dto.Turma)
+                                       .Set("atividades", dto.Atividades));
             
              return Ok("Cadastro atualizado com sucesso");
         }
 
-        [HttpDelete("{email}")]
-        public ActionResult DeletarEstudante(string email)
+        [HttpDelete("{id}")]
+        public ActionResult DeletarEstudante(string id)
         {
             _estudantesCollection.DeleteOne(Builders<Estudante>.Filter
-            .Where(_ => _.Email == email));            
+            .Where(_ => _.Id == id));            
             
              return Ok("Cadastro deletado com sucesso");
         }
+
+       
     }
 }

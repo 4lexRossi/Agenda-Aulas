@@ -8,6 +8,8 @@ import { AtividadeComponent } from './atividade/atividade.component';
 import { AtividadesComponent } from './atividades/atividades.component';
 import { TurmaComponent } from './turma/turma.component';
 import { TurmasComponent } from './turmas/turmas.component';
+import { LoginComponent } from './login/login.component';
+import { ProfessorComponent } from './professor/professor.component';
 
 const routes: Routes = [
   {
@@ -15,7 +17,19 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'professor',
+    component: ProfessorComponent
+  },
+  {
     path: 'atividade',
+    component: AtividadeComponent
+  },
+  {
+    path: 'atividade/:id',
     component: AtividadeComponent
   },
   {
@@ -31,6 +45,10 @@ const routes: Routes = [
     component: AlunoComponent
   },
   {
+    path: 'aluno/:id',
+    component: AlunoComponent
+  },
+  {
     path: 'turmas',
     component: TurmasComponent
   },
@@ -40,7 +58,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'Home'
+    redirectTo: 'login'
   }
 ]
 

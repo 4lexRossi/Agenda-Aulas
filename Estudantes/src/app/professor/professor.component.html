@@ -1,0 +1,40 @@
+<body>
+  <form [formGroup]="professorForm" role="form" id="quickForm">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Registrar</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input formControlName="nome" type="text" class="login-field" value="" placeholder="Nome" id="login-name">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input formControlName="sobrenome" type="text" class="login-field" value="" placeholder="Sobrenome" id="login-pass">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+        <div class="control-group">
+          <input formControlName="email" type="email" class="login-field" value="" placeholder=" E-mail " id="login-pass">
+          <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
+
+        <div class="control-group">
+          <input formControlName="senha" type="password" class="login-field" value="" placeholder="Senha" id="login-pass">
+          <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
+
+          <div class="control-group">
+            <input formControlName="confirmarSenha" type="password" class="login-field" value="" placeholder="Confirmar Senha" id="login-pass">
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
+            </div>
+        <a class="btn btn-primary btn-large btn-block" (click)="save()">Concluido</a><br/>
+        <a class="btn btn-primary btn-large btn-block" [routerLink]="['/login']">Login</a>
+			</div>
+		</div>
+  </div>
+  </form>
+</body>

@@ -14,9 +14,11 @@ namespace Api.Data.Collections
             string sexo,
             string email,
             string turma,
+            string id,
             IEnumerable<AtividadeDto> atividades
             )
         {
+            this.Id = id;
             this.Nome = nome;
             this.NomeResponsavel = nomeResponsavel;
             this.DataNascimento = dataNascimento;
@@ -24,8 +26,9 @@ namespace Api.Data.Collections
             this.Email = email;            
             this.Turma = turma;
             this.Atividades = atividades;
-        } 
-        
+        }
+
+        public string Id { get; set; }
         public string Nome { get; set; }
         public string NomeResponsavel { get; set; }
         public DateTime DataNascimento { get; set; }

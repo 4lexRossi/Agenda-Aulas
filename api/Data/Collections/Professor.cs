@@ -11,14 +11,19 @@ namespace Api.Data.Collections
             string nome,
             string sobreNome,            
             string email,
-            string senha      
+            string senha,
+            string id
+            
             )
         {
+            this.Id = id;
             this.Nome = nome;
             this.SobreNome = sobreNome;             
             this.Email = email;                        
             this.Senha = senha;
-        }         
+        }      
+        
+        public string Id { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }               
         public string Email { get; set; }

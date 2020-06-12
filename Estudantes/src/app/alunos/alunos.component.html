@@ -15,18 +15,15 @@
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
 </nav>
   <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
         <div class="info">
-          <a href="#" class="d-block">Professor Fulano</a>
+          <a  class="d-block"> Professor {{professor.nome + " "}} {{professor.sobreNome}}</a>
         </div>
       </div>
       <nav class="mt-2">
@@ -112,8 +109,9 @@
         </ul>
       </nav>
     </div>
+    <input type="button" (click)="Logout()" value="Sair">
   </aside>
-<div class="content-wrapper">  
+<div class="content-wrapper">
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -122,6 +120,44 @@
         </div>
       </div>
     </div>
+
+    <div class="caixa-conteudo">
+      <div class="table-responsive">
+        <table #myDiv id="gridHoliday" class="row-border hover" datatable
+        [dtOptions]="dtOptionsAluno" [dtTrigger]="dtTriggerAluno" >
+            <thead>
+                <tr>
+                    <th width="8%" class="colIcons"></th>
+                    <th width="50%">Nome do aluno</th>
+                    <th width="30%">Nome do responsavel</th>
+                    <th width="50%">Sexo</th>
+                    <th width="50%">Turma</th>
+                    <th width="80%">Data de nascimento</th>
+                    <th width="70%">E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aluno of alunos">
+                    <td class="colIcons">
+                        <span class="btn-xs" title="Editar"  [routerLink]="['/aluno', aluno.id]" >
+                            <i class="icon-pencil"></i>
+                        </span>&nbsp;&nbsp;
+                        <span class="btn-xs" title="Excluir" (click)="confirmDelete(aluno.id)">
+                            <i class="icon-trash"></i>
+                        </span>
+                    </td>
+                    <td>{{aluno.nome}}</td>
+                    <td>{{aluno.nomeResponsavel}}</td>
+                    <td>{{aluno.sexo}}</td>
+                    <td>{{aluno.turma}}</td>
+                    <td>{{aluno.dataNascimento | date: 'dd-MMM-yyyy' }}</td>
+                    <td>{{aluno.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
   </section>
 
 

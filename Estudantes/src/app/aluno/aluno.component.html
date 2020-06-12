@@ -15,7 +15,7 @@
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
 </nav>
@@ -23,11 +23,8 @@
 
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
         <div class="info">
-          <a href="#" class="d-block">Professor Fulano</a>
+          <a class="d-block"> Professor {{professor.nome + " "}} {{professor.sobreNome}}</a>
         </div>
       </div>
 
@@ -114,6 +111,7 @@
         </ul>
       </nav>
     </div>
+    <input type="button" (click)="Logout()" value="Sair">
   </aside>
 
 <div class="content-wrapper">
@@ -132,37 +130,42 @@
 
         <div class="col-md-12">
           <div class="card card-outline card-success">
-            <form role="form" id="quickForm">
+            <form [formGroup]="alunoForm" role="form" id="quickForm">
               <div class="card-body">
 
                 <div class="row">
-                  <div class="col-sm-5">
+                  <div class="col-sm-3">
                     <div class="form-group">
                       <label>Nome do aluno</label>
-                      <input type="text" name="nome_aluno" class="form-control" id="nome_aluno" placeholder="Nome completo">
+                      <input formControlName="nome"  type="text" name="nome_aluno" class="form-control" id="nome_aluno" placeholder="Nome completo">
                     </div>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                     <div class="form-group">
                       <label>Sexo</label>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" id="feminino" name="sexo">
-                          <label class="form-check-label col-3">Feminino</label>
+                          <input  formControlName="sexo" class="form-check-input" type="radio" id="feminino" value="F" name="sexo">
+                          <label class="form-check-label col-5">Feminino</label>
 
-                          <input class="form-check-input" type="radio" id="masculino" name="sexo">
-                          <label class="form-check-label col-3">Masculino</label>
+                          <input formControlName="sexo"  class="form-check-input" type="radio" id="masculino" value="M" name="sexo">
+                          <label class="form-check-label col-5">Masculino</label>
                         </div>
                       </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Turma</label>
+                      <input formControlName="turma"  type="text" name="turma" class="form-control" id="turma" placeholder="Turma">
+                    </div>
                   </div>
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label>Data de nascimento</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                           </div>
-                            <input type="text" class="form-control" name="data_nasc" id="data_nasc" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                        </div> 
+                            <input formControlName="dataNascimento"  type="date" class="form-control" name="data_nasc" id="data_nasc" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -171,31 +174,53 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                       <label>Email</label>
-                      <input type="email" name="email" class="form-control" id="email">
+                      <input formControlName="email" type="email" name="email" class="form-control" id="email">
                     </div>
                     </div>
-                  <div class="col-sm-3">
-                    <div class="form-group">
-                      <label>Telefone</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                          </div>
-                            <input type="text" class="form-control" data-inputmask='"mask": "(99) 99999-9999"' data-mask>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-5">
+                  <div class="col-sm-4">
                     <div class="form-group">
                       <label>Responsável</label>
-                      <input type="text" name="nome_responsavel" class="form-control" id="nome_responsavel" placeholder="Nome completo / Filiação">
+                      <input formControlName="nomeResponsavel" type="text" name="nome_responsavel" class="form-control" id="nome_responsavel" placeholder="Nome completo / Filiação">
                     </div>
                   </div>
+
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label>Atividades concluidas</label>
+                      <div class="input-group">
+                        <select formControlName="atividades"  >
+                          <option value="" selected disabled></option>
+                            <option *ngFor="let atividade of atividades" [value]="atividade.id" >
+                              {{atividade.nome}}
+                          </option>
+                      </select>
+                      <button id="atividades" (click)="addAtividades()" class="icon-plus"></button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  &nbsp;
+                  </div>
+                <div class="col-sm-4">
+                  &nbsp;
                 </div>
 
+              <div class="col-sm-4">
+                <div class="col-sm-7">
+                  <div class="groupDL-list carousel-multiple-options" [hidden]="atividadesSelecionadas == undefined || atividadesSelecionadas.length === 0">
+                      <ul *ngFor="let atividade of atividadesSelecionadas"  >
+                      <li><div >{{atividade.nome}}</div><i class="icon-cancel" (click)="removeAtividades(atividade)"></i></li>
+                      </ul>
+                    </div>
+
+              </div>
+              </div>
+            </div>
               </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-success float-right">Concluído</button>
+                <button type="submit" (click)="save()" class="btn btn-success float-right">Concluído</button>
               </div>
             </form>
 
