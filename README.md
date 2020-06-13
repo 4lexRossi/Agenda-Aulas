@@ -1,4 +1,4 @@
-<h1 align="center">Construindo uma API.NET integrada ao MongoDB Atlas para diário de Classe</h1>
+<h1 align="center">Uma aplicação completa para diário de Classe Conectada com a Api online</h1>
 
 Esse repo é um projeto incrível da DioX Squad
 [Digital Innovation One](https://digitalinnovation.one/sign-up?ref=QFX2ZVP4RU)
@@ -7,63 +7,66 @@ Esse repo é um projeto incrível da DioX Squad
 
 `git clone https://github.com/4lexRossi/dotNet-mongo-squad1.git`
 
-## Requisitos minimos
-dotnet versão 3.1.300
-Uma IDE de sua preferência
+## Stack utilizada no backend:
 
-## Instalar dependências
+ * dotnet 3.1.300
+ * Asp.NetCore
+ * C#
+ * Mongo DB Atlas Database
+
+## Stack utilizada no frontend:
+
+ * Angular 9
+ * bootstrap jquery
+
+## Instalar dependências na API
 ```
     dotnet add package MongoDB.Driver
 ```
 
 Criar uma conta no [MongoDB](https://www.mongodb.com/)
 Após a criação terá que alterar o campo 
-`"ConnectionString": "mongodb+srv://seu_usuario:sua_senha@dotnet-mongo-seu_usuario-v5slk.gcp.mongodb.net/test?retryWrites=true&w=majority"`
-no arquivo `appsettings.json`
 
-## Para iniciar o servidor, use o comando:
+```
+"ConnectionString": "mongodb+srv://seu_usuario:sua_senha@dotnet-mongo-seu_usuario-v5slk.gcp.mongodb.net/test?retryWrites=true&w=majority"
+no arquivo appsettings.json
+```
+
+## Para iniciar o servidor backend, use o comando:
 
 ```
    dotnet run
 ```
-## Para iniciar o servidor, use o comando:
-```
-   npm start
-```
+## Instale as dependencias no front na pasta Estudantes com os comandos
 
-## ## Testando a Api rodando em um servidor local:
+`npm install -g @angular/cli@9.0.0-rc.7`
 
-ele vai abrir na porta -> [localhost:5000](http://localhost:5000/)
+`npm install bootstrap jquery --save`
 
-use o endereço -> [localhost:5000/estudante](http://localhost:5000/estudante) para utilizar (o)a aluno(a) e testar os métodos `POST`, `GET` e `PUT` para `DELETE` adicione `/email_do_cadastro` ao final do endereço.
-<p></p>
+## Execute o frontend:
 
-use o endereço -> [localhost:5000/atividade](http://localhost:5000/atividade) para utilizar a atividade e testar os métodos `POST`, `GET` e `PUT` para `DELETE` adicione `/nome_do_cadastro` ao final do endereço.
+com o comando `ng serve`
 
-LinkedIn dos Participantes desse projeto
+porta -> [localhost:4200](http://localhost:4200/)
+
+### Todos o Processo é enviado ao DB
+
+>crie uma conta e faça o Login
+
+![](https://imgur.com/QcgsVoA.jpg)
+![](https://imgur.com/JqPq8j4.jpg)
+
+>adicione alunos, visualize, edite ou delete
+
+![](https://imgur.com/JinajFx.jpg)
+![](https://imgur.com/bvwn7j2.jpg)
+
+>adicione atividades e depois atribua aos alunos que as concluirem
+![](https://imgur.com/PqCflYQ.jpg)
+![](https://imgur.com/oZRwu1T.jpg)
+
+## linkedIn dos participantes do projeto em ordem alfabética
+
 <p>[Alex Rossi](https://www.linkedin.com/in/4lex/)</p>
 <p>[Tati Bleck](https://www.linkedin.com/in/tatianebleck/)</p>
 <p>[Victor Silva](https://www.linkedin.com/in/victor-da-silva-a75951138/)</p>
-
-## Links Uteis
-
-- .net core - https://dotnet.microsoft.com/download
-
-- visual code - https://code.visualstudio.com/download
-
-- postman - https://www.postman.com/downloads/
-
-- mongo atlas - https://www.mongodb.com/cloud/atlas/register
-
-
------------------------------------------------
-
-## Referências
-
-https://docs.mongodb.com/
-
-https://docs.mongodb.com/manual/
-
-https://docs.mongodb.com/ecosystem/drivers/csharp/
-
-https://docs.atlas.mongodb.com/
