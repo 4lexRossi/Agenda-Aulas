@@ -3,6 +3,8 @@
 Esse repo é um projeto incrível da DioX Squad
 [Digital Innovation One](https://digitalinnovation.one/sign-up?ref=QFX2ZVP4RU)
 
+![](https://img.shields.io/github/stars/4lexRossi/dotNet-mongo-squad1.svg) ![](https://img.shields.io/github/forks/4lexRossi/dotNet-mongo-squad1.svg) ![](https://img.shields.io/github/issues/4lexRossi/dotNet-mongo-squad1.svg)
+
 ## clone o repositório 
 
 `git clone https://github.com/4lexRossi/dotNet-mongo-squad1.git`
