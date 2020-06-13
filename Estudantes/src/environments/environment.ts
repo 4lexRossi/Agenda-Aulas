@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44396',
+  apiUrl: 'https://teacheradm.azurewebsites.net',
 
 };
 

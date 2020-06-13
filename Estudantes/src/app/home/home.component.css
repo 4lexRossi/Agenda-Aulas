@@ -1,10 +1,19 @@
 aside input{
-  width: 80px;
-  margin-top: 500px;
-  margin-left: 80px;
-  font-weight: bolder;
-  background-color: #c2c7d0;
-  color: #343a40;
-  border-radius: 6px;
-
+  width: 160px;
+  height: 40px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 8px;  
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 43px;
+  background:#242020;  
+  color: white;
+  font-family: Ubuntu, sans-serif;
+  transition: 400ms;
+}
+aside input:hover{
+ 
+ background-color: #b82f4d;
 }

@@ -1,5 +1,16 @@
+.background{
+
+  height: 100vh;
+
+  background: url('../../assets/img/teacher.svg') no-repeat;
+  background-size: 700px;
+  background-position: auto;
+  background-color: #202341;
+  
+}
 * {
   box-sizing: border-box;
+  
   }
 
   *:focus {
@@ -11,13 +22,14 @@
   background-color: #343a40;
 
   padding: 125px;
+  
   }
   .login {
   /* margin: 10px auto; */
   width: 300px;
 
-  margin-left: 650px;
- margin-bottom: -40%;
+  margin-left: 680px;
+  margin-bottom: -40%;
 
   }
   .login-screen {
@@ -39,6 +51,7 @@
   }
   .control-group {
   margin-bottom: 10px;
+  
   }
 
   input {
@@ -90,3 +103,11 @@ margin-top: -10%;
 padding-bottom: 300px;
 
 }
+footer{
+  display: absolute; 
+  width: 100%;
+  height: 100%;
+  margin-top: 500px;
+  margin-left: 900px;
+}
+

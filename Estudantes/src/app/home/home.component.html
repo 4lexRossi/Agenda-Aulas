@@ -21,19 +21,18 @@
 </nav>
 
   <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
-
+    
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a class="d-block"> Professor {{professor.nome + " "}} {{professor.sobreNome}}</a>
+          <a class="d-block"> Professor(a) {{professor.nome + " "}} {{professor.sobreNome}}</a>
         </div>
       </div>
-
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
           <li class="nav-item">
             <a [routerLink]="['/home']" class="nav-link active">
-              <i class="nav-icon fas fa-home"></i>
+              <i class="nav-icon fas fa-home"></i>              
               <p> Home</p>
             </a>
           </li>
@@ -111,7 +110,7 @@
         </ul>
       </nav>
     </div>
-    <input type="button" (click)="Logout()" value="Sair">
+    <input type="button" (click)="Logout()" value="Sair">    
   </aside>
 
   <div class="content-wrapper">
@@ -119,7 +118,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Home</h1>
+            <h1 class="m-0 text-dark">Sr(a) {{professor.sobreNome}} essa é sua agenda de alunos e atividades</h1>
+              <p class="m-0 text-dark">escolha cadastrar alunos ou atividades</p>
+              <p class="m-0 text-dark">e receba as listagens</p>
           </div>
         </div>
       </div>
