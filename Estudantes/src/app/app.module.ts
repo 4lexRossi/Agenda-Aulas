@@ -37,9 +37,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      toastClass: 'toast toast-bootstrap-compatibility-fix'
-    }),
+    ToastrModule.forRoot(),
     DataTablesModule,
     HttpClientModule,
     FormsModule,

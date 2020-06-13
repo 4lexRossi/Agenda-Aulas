@@ -145,10 +145,10 @@
                       <label>Sexo</label>
                         <div class="form-check">
                           <input  formControlName="sexo" class="form-check-input" type="radio" id="feminino" value="F" name="sexo">
-                          <label class="form-check-label col-5">Feminino</label>
+                          <label class="form-check-label col-6">Feminino</label>
 
                           <input formControlName="sexo"  class="form-check-input" type="radio" id="masculino" value="M" name="sexo">
-                          <label class="form-check-label col-5">Masculino</label>
+                          <label class="form-check-label col-6">Masculino</label>
                         </div>
                       </div>
                   </div>
@@ -188,7 +188,7 @@
                   <div class="form-group">
                     <label>Atividades concluidas</label>
                       <div class="input-group">
-                        <select formControlName="atividades"  >
+                        <select formControlName="atividades" class="form-control"  >
                           <option value="" selected disabled></option>
                             <option *ngFor="let atividade of atividades" [value]="atividade.id" >
                               {{atividade.nome}}

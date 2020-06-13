@@ -27,6 +27,8 @@ export class AtividadeComponent implements OnInit, AfterViewInit {
 
   atividadeForm: FormGroup;
 
+  regex: any = /^$|\s+/ ;
+
   atividade: Atividade = {
     id: '',
     nome: '',
@@ -98,6 +100,15 @@ export class AtividadeComponent implements OnInit, AfterViewInit {
       this.atividade.nome = this.atividadeForm.get('nome').value;
       this.atividade.descricao =  this.atividadeForm.get('descricao').value;
 
+    }
+
+    let valnome;
+    valnome = this.regex.test(this.atividade.nome);
+
+    if(valnome === true || this.atividade.nome === null )
+    {
+      this.toastr.error('Nome da atividade esta vazio!', 'Atividade');
+      return
     }
 
 

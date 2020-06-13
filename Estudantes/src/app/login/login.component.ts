@@ -53,12 +53,12 @@ export class LoginComponent implements OnInit {
 
          if(data !== null)
          {
-          this.toastr.success('Usuario logado com sucesso', 'Usuario');
+          this.toastr.success('Professor logado com sucesso!', 'Professor');
          window.localStorage.setItem('prof', JSON.stringify(data) );
         this.router.navigateByUrl('/Home');
          }
          else{
-          this.toastr.error('E-mail ou senha incorreto!', 'Usuario');
+          this.toastr.error('E-mail ou senha incorreto!', 'Professor');
           this.router.navigateByUrl('/login');
          }
 

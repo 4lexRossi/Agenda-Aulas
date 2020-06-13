@@ -28,6 +28,8 @@ export class AlunoComponent implements OnInit, AfterViewInit {
 
   private ngGetAlunoUnsubscribe = new Subject();
 
+  regex: any = /^\s*$/ ;
+
   alunoForm: FormGroup;
 
   atividades: Atividade[] = [];
@@ -176,6 +178,24 @@ this.search();
 
     }
 
+    let valNome, valnomeResponsavel, dataNascimento, valTurma, valSexo, valEmail;
+    valNome = this.regex.test(this.aluno.nome);
+    valnomeResponsavel = this.regex.test(this.aluno.nomeResponsavel);
+    dataNascimento = this.regex.test(this.aluno.dataNascimento);
+    valTurma = this.regex.test(this.aluno.turma);
+    valSexo = this.regex.test(this.aluno.sexo);
+    valEmail = this.regex.test(this.aluno.email);
+
+    if(valNome === true || this.aluno.nome === null ||
+       valnomeResponsavel === true ||  this.aluno.nomeResponsavel === null ||
+        dataNascimento === null ||
+        valTurma === true || this.aluno.turma === null ||
+        valSexo === null||
+        valEmail === true || this.aluno.email == null  )
+    {
+      this.toastr.error('Campos inválidos ou vazios, verifique!', 'Aluno');
+      return;
+    }
 
     this.alunoService.save(this.aluno)
       .pipe(takeUntil(this.ngGetAlunoUnsubscribe))
@@ -185,9 +205,17 @@ this.search();
       }, err => {
       });
 
-      this.toastr.success('Aluno cadastrado com sucesso', 'Aluno');
       this.router.navigateByUrl('/alunos').then(e => {
-        if (e) {
+        if (e ) {
+          if(this.aluno.id === "")
+          {
+            this.toastr.success('Aluno cadastrado com sucesso!', 'Aluno');
+
+          }
+          else
+          {
+            this.toastr.success('Aluno atualizado com sucesso!', 'Aluno');
+          }
           console.log("Navigation is successful!");
         } else {
           console.log("Navigation has failed!");

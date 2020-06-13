@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 import { takeUntil } from 'rxjs/operators';
@@ -17,6 +18,8 @@ export class ProfessorComponent implements OnInit {
 
   private ngGetAlunoUnsubscribe = new Subject();
 
+   regex: any = /^\s*$/ ;
+
   professorForm: FormGroup;
 
   professor: Professor = {
@@ -28,7 +31,8 @@ export class ProfessorComponent implements OnInit {
   };
 
   constructor(private router: Router,
-              private professorService: ProfessorService) { }
+              private professorService: ProfessorService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.professorForm = new FormGroup({
@@ -48,9 +52,12 @@ export class ProfessorComponent implements OnInit {
     const getSenha = this.professorForm.get('senha').value
     const getConfirmar = this.professorForm.get('confirmarSenha').value
 
-    if (getSenha === getConfirmar &&
-      (getSenha !== null || getConfirmar !== null))
+    if (getSenha !== getConfirmar ||
+      (getSenha === null || getConfirmar === null))
     {
+      this.toastr.error('As senhas digitadas não coincidem, ou estão inválidas, verifique!', 'Professor');
+      return
+    }
 
     this.professor = Object.assign({}, {
       id: '',
@@ -60,7 +67,21 @@ export class ProfessorComponent implements OnInit {
       senha: this.professorForm.get('senha').value,
 
     });
+    let valNome, valsobreNome, valEmail;
+    valNome = this.regex.test(this.professor.nome);
+    valsobreNome = this.regex.test(this.professor.sobreNome);
+    valEmail = this.regex.test(this.professor.email);
 
+    if(valNome === true ||
+      this.professor.nome === null ||
+      valsobreNome === true ||
+      this.professor.sobreNome == null ||
+      valEmail === true ||
+      this.professor.email === null )
+    {
+      this.toastr.error('Campos inválidos ou vazios, verifique!', 'Professor');
+      return
+    }
     this.professorService.save(this.professor)
       .pipe(takeUntil(this.ngGetAlunoUnsubscribe))
       .subscribe(_ => {
@@ -71,11 +92,11 @@ export class ProfessorComponent implements OnInit {
 
     this.router.navigateByUrl('/login').then(e => {
         if (e) {
-          console.log("Navigation is successful!");
+          this.toastr.success('Professor cadastrado com sucesso! :)', 'Professor');
         } else {
           console.log("Navigation has failed!");
         }
       });
-    }
+
   }
 }

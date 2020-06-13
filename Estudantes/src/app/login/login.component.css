@@ -6,11 +6,11 @@
   background-size: 700px;
   background-position: auto;
   background-color: #202341;
-  
+
 }
 * {
   box-sizing: border-box;
-  
+
   }
 
   *:focus {
@@ -19,10 +19,10 @@
   }
   body {
   font-family: Arial;
-  background-color: #343a40;
+  background-color: #202341;
 
   padding: 125px;
-  
+
   }
   .login {
   /* margin: 10px auto; */
@@ -51,7 +51,7 @@
   }
   .control-group {
   margin-bottom: 10px;
-  
+
   }
 
   input {
@@ -103,5 +103,11 @@ margin-top: -10%;
 padding-bottom: 300px;
 
 }
-
+footer{
+  display: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 500px;
+  margin-left: 900px;
+}
 
