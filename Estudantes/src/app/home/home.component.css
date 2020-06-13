@@ -8,13 +8,11 @@ aside input{
   align-items: center;
   margin-top: 40px;
   margin-left: 43px;
-  background:#c2c7d0;
-  color:#343a40;
-  font-family: Ubuntu, sans-serif;
+  background:#242020;
   transition: 400ms;
+  color: white;
+  font-family: Ubuntu, sans-serif;
 }
 aside input:hover{
-
  background-color: #b82f4d;
- color:#c2c7d0;
 }

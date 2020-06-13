@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://teacheradm.azurewebsites.net',
+  apiUrl: 'url  da api',
 
 };
 

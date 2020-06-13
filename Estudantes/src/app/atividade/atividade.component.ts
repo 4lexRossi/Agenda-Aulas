@@ -120,7 +120,7 @@ export class AtividadeComponent implements OnInit, AfterViewInit {
       }, err => {
       });
 
-      this.toastr.success( 'Atividade Cadastrada com sucesso','Atividade');
+      this.toastr.success( 'Atividade cadastrada com sucesso','Atividade');
        window.setTimeout(() => {
 
           this.router.navigateByUrl('/atividades').then(e => {
