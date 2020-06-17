@@ -3,6 +3,10 @@
 Esse repo é um projeto incrível da DioX Squad
 [Digital Innovation One](https://digitalinnovation.one/sign-up?ref=QFX2ZVP4RU)
 
+## Conectar online
+esse projeto está online e pode ser acessado pelo link
+Back - [Teacher-ADM - MongoDB](https://teacheradm.azurewebsites.net/swagger)
+
 ## clone o repositório 
 
 `git clone https://github.com/4lexRossi/dotNet-mongo-squad1.git`

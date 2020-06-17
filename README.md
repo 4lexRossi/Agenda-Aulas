@@ -8,7 +8,8 @@ Esse repo é um projeto incrível da DioX Squad
 ## Conectar online
 esse projeto está online e pode ser acessado pelo link
 
-[Teacher-ADM](https://teacher-adm.azurewebsites.net/)
+Front - [Teacher-ADM](https://teacher-adm.azurewebsites.net/)
+Back - [Teacher-ADM - MongoDB](https://teacheradm.azurewebsites.net/swagger)
 
 ## clone o repositório 
 
