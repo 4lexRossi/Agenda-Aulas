@@ -1,6 +1,6 @@
 <h1 align="center">Uma aplicação completa para diário de Classe Conectada com a Api online</h1>
 
-Esse repo é um projeto incrível da DioX Squad
+Esse repo é um projeto incrível da DioX Squad 1
 [Digital Innovation One](https://digitalinnovation.one/sign-up?ref=QFX2ZVP4RU)
 
 ![](https://img.shields.io/github/stars/4lexRossi/dotNet-mongo-squad1.svg) ![](https://img.shields.io/github/forks/4lexRossi/dotNet-mongo-squad1.svg) ![](https://img.shields.io/github/issues/4lexRossi/dotNet-mongo-squad1.svg)
@@ -13,7 +13,7 @@ Back - [Teacher-ADM - MongoDB](https://teacheradm.azurewebsites.net/swagger)
 
 ## clone o repositório 
 
-`git clone https://github.com/4lexRossi/dotNet-mongo-squad1.git`
+`git clone https://github.com/4lexRossi/Agenda-Aulas.git`
 
 ## Stack utilizada no backend:
 
