@@ -27,7 +27,7 @@
     "bootstrap": "^4.5.0",
     "datatables.net": "^1.10.21",
     "datatables.net-dt": "^1.10.21",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.5.1",
     "ngx-toastr": "^12.1.0",
     "path": "^0.12.7",
